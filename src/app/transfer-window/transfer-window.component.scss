@@ -1,0 +1,26 @@
+.wrapper {
+    display: flex;
+}
+
+form {
+    max-width: fit-content;
+
+    div {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    input,
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    input[type="time"],
+    textarea {
+        width: 50%;
+        box-sizing: border-box;
+    }
+
+    label {
+        max-width: 50%;
+    }
+}

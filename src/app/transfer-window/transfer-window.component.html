@@ -1,0 +1,196 @@
+<div class="wrapper" *ngIf="ifBookingNotEmpty()">
+    <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
+
+        <div>
+            <label for="mainContact">Main Contact:</label>
+            <input id="mainContact" formControlName="mainContact">
+        </div>
+
+        <div>
+            <label for="phone">Phone:</label>
+            <input id="phone" formControlName="phone" type="tel">
+        </div>
+
+        <div>
+            <label for="email">Email:</label>
+            <input id="email" formControlName="email" type="email">
+        </div>
+
+        <div>
+            <label for="bookingConf">Booking Confirmation:</label>
+            <input id="bookingConf" formControlName="bookingConf">
+        </div>
+
+        <div>
+            <label for="paxTotal">Total Pax:</label>
+            <input id="paxTotal" formControlName="paxTotal" type="number">
+        </div>
+
+        <div>
+            <label for="pickupDate">Pickup Date:</label>
+            <input id="pickupDate" formControlName="pickupDate" type="text">
+        </div>
+
+        <div>
+            <label for="pickupTime">Pickup Time:</label>
+            <input id="pickupTime" formControlName="pickupTime" type="text">
+        </div>
+
+        <div>
+            <label for="fromTransfer">From Transfer:</label>
+            <input id="fromTransfer" formControlName="fromTransfer">
+        </div>
+
+        <div>
+            <label for="toTransfer">To Transfer:</label>
+            <input id="toTransfer" formControlName="toTransfer">
+        </div>
+
+        <div>
+            <label for="remarks">Remarks:</label>
+            <input id="remarks" formControlName="remarks" type="text">
+        </div>
+
+        <div>
+            <label for="paymentMethod">Payment Method:</label>
+            <input id="paymentMethod" formControlName="paymentMethod">
+        </div>
+
+        <div>
+            <label for="fixPriceClient">Fixed Price (Client):</label>
+            <input id="fixPriceClient" formControlName="fixPriceClient">
+        </div>
+
+        <div>
+            <label for="fixPriceGTcontracttor">Fixed Price (GT Contractor):</label>
+            <input id="fixPriceGTcontracttor" formControlName="fixPriceGTcontracttor">
+        </div>
+
+        <div>
+            <label for="routingPrice">Routing Price:</label>
+            <input id="routingPrice" formControlName="routingPrice">
+        </div>
+
+        <div>
+            <label for="contactPerson">Contact Person:</label>
+            <input id="contactPerson" formControlName="contactPerson">
+        </div>
+
+        <div>
+            <label for="emailBookingArranger">Email (Booking Arranger):</label>
+            <input id="emailBookingArranger" formControlName="emailBookingArranger">
+        </div>
+
+        <div>
+            <label for="phoneBookingArranger">Phone (Booking Arranger):</label>
+            <input id="phoneBookingArranger" formControlName="phoneBookingArranger" type="tel">
+        </div>
+
+        <div>
+            <label for="arrangerBookingConfirmation">Arranger Booking Confirmation:</label>
+            <input id="arrangerBookingConfirmation" formControlName="arrangerBookingConfirmation">
+        </div>
+
+        <div>
+            <label for="language">Language:</label>
+            <input id="language" formControlName="language">
+        </div>
+
+        <div>
+            <label for="GTU">GTU:</label>
+            <input id="GTU" formControlName="GTU">
+        </div>
+
+        <div>
+            <label for="AgencyNr">Agency Number:</label>
+            <input id="AgencyNr" formControlName="AgencyNr">
+        </div>
+
+        <div>
+            <label for="cc_id_GT">CC ID GT:</label>
+            <input id="cc_id_GT" formControlName="cc_id_GT">
+        </div>
+
+        <div>
+            <label for="caseInvoice">Case Invoice:</label>
+            <input id="caseInvoice" formControlName="caseInvoice">
+        </div>
+
+        <div>
+            <label for="externalBookingident">External Booking Identifier:</label>
+            <input id="externalBookingident" formControlName="externalBookingident">
+        </div>
+
+        <div>
+            <label for="internalBookingident">Internal Booking Identifier:</label>
+            <input id="internalBookingident" formControlName="internalBookingident">
+        </div>
+
+        <div>
+            <label for="transactionType">Transaction Type:</label>
+            <input id="transactionType" formControlName="transactionType">
+        </div>
+
+        <div>
+            <label for="serviceClass">Service Class:</label>
+            <input id="serviceClass" formControlName="serviceClass">
+        </div>
+
+        <div>
+            <label for="vehicleType">Vehicle Type:</label>
+            <input id="vehicleType" formControlName="vehicleType">
+        </div>
+
+        <div>
+            <label for="flightOrigin">Flight Origin:</label>
+            <input id="flightOrigin" formControlName="flightOrigin">
+        </div>
+
+        <div>
+            <label for="flightDestination">Flight Destination:</label>
+            <input id="flightDestination" formControlName="flightDestination">
+        </div>
+
+        <div>
+            <label for="flightArrival">Flight Arrival:</label>
+            <input id="flightArrival" formControlName="flightArrival" type="text">
+        </div>
+
+        <div>
+            <label for="flightDeparture">Flight Departure:</label>
+            <input id="flightDeparture" formControlName="flightDeparture" type="text">
+        </div>
+
+        <div>
+            <label for="flightNumber">Flight Number:</label>
+            <input id="flightNumber" formControlName="flightNumber">
+        </div>
+
+        <div>
+            <label for="airportTransferFromTo">Airport Transfer (From/To):</label>
+            <input id="airportTransferFromTo" formControlName="airportTransferFromTo">
+        </div>
+
+        <div>
+            <label for="ModeExpedia">Mode Expedia:</label>
+            <input id="ModeExpedia" formControlName="ModeExpedia">
+        </div>
+
+        <div>
+            <label for="VIP">VIP:</label>
+            <input id="VIP" formControlName="VIP" type="checkbox">
+        </div>
+
+        <div>
+            <label for="CustomerID">Customer ID:</label>
+            <input id="CustomerID" formControlName="CustomerID">
+        </div>
+
+        <div>
+            <label for="CityPriceID">City Price ID:</label>
+            <input id="CityPriceID" formControlName="CityPriceID">
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
