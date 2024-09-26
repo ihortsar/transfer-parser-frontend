@@ -24,20 +24,23 @@ export class TransferWindowComponent implements OnInit {
     });
   }
 
+
   onSubmit() {
     const data = [this.bookingForm.value]
     const header = Object.keys(data[0]);
-    let csv = data.map((row: any) =>
+    let csv = data.map(row =>
       header.map(fieldName => {
         const value = row[fieldName];
-        return value === null ? '' : value; 
-      }).join('   ') 
-    ); csv.unshift(header.join('    '));
+        return `"${value === null || value === undefined ? "" : value}"`;
+      }).join(';')
+    );
+    csv.unshift(header.map(word => `"${word}"`).join(';'));
     let csvArray = csv.join('\r\n');
 
     var blob = new Blob([csvArray], { type: 'text/csv' })
     saveAs(blob, "myFile.csv");
   }
+
 
   ifBookingNotEmpty(): boolean {
     return this.booking && Object.keys(this.booking).length > 0;

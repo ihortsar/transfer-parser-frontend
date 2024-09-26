@@ -16,7 +16,6 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 })
 export class HomeComponent {
   pdfSource: SafeResourceUrl | null = null;
-
   pdf: any
   constructor(private http: HttpClient, public bs: BookingService, private sanitizer: DomSanitizer) { }
 
@@ -24,12 +23,11 @@ export class HomeComponent {
     const fileInput = event.target as HTMLInputElement;
     if (fileInput.files && fileInput.files.length > 0) {
       this.pdf = fileInput.files[0];
-      const objectUrl = URL.createObjectURL(this.pdf);  // Create an object URL for the file
+      const objectUrl = URL.createObjectURL(this.pdf);
       this.pdfSource = this.sanitizer.bypassSecurityTrustResourceUrl(objectUrl);
-      console.log(this.bs.pdfSource);
-
     }
   }
+
 
   async sendToParse() {
     this.bs.bookings = []
@@ -37,9 +35,9 @@ export class HomeComponent {
     const formData = new FormData();
     formData.append('pdf', this.pdf);
 
-    const response = await lastValueFrom(this.http.post(url, formData))
+    const response = await lastValueFrom(this.http.post(url, formData, {
+    }))
     this.bs.createTransfer(response)
-
   }
 
 
