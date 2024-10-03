@@ -1,6 +1,14 @@
 .wrapper {
     display: flex;
 }
+h2{
+    min-height: 30px;
+}
+.formWrapper {
+    display: flex;
+    flex-direction: column;
+
+}
 
 form {
     max-width: fit-content;

@@ -13,14 +13,16 @@ export class BookingService {
 
 
   createTransfer(data: any) {
-    if (data?.details.length > 1) {
-      this.manageIf2Bookings(data)
-    } else {
-      let properties = data.details
-      properties.airportTransferFromTo = this.airportFromOrTo(properties)
-      let booking = new Booking(properties)
-      this.bookings.push(booking)
-    }
+    data.forEach((booking: any) => {
+      if (booking.details.length > 1) {
+        this.manageIf2Bookings(booking)
+      } else {
+        let properties = booking.details
+        properties.airportTransferFromTo = this.airportFromOrTo(properties)
+        let newBooking = new Booking(properties)
+        this.bookings.push(newBooking)
+      }
+    })
   }
 
 
@@ -37,6 +39,7 @@ export class BookingService {
 
 
   airportFromOrTo(details: any) {
+
     if (details.flightArrivalTime !== '') {
       details.airportTransferFromTo = 'from'
     } else {

@@ -13,7 +13,7 @@ import { saveAs } from 'file-saver'
 })
 export class TransferWindowComponent implements OnInit {
   bookingForm: FormGroup = this.fb.group({});
-  @Input() booking: {} = {}
+  @Input() booking: any
   constructor(public bs: BookingService, private fb: FormBuilder) {
   }
   ngOnInit(): void {
@@ -38,7 +38,7 @@ export class TransferWindowComponent implements OnInit {
     let csvArray = csv.join('\r\n');
 
     var blob = new Blob([csvArray], { type: 'text/csv' })
-    saveAs(blob, "myFile.csv");
+    saveAs(blob, this.booking.serviceID);
   }
 
 

@@ -11,7 +11,7 @@ export class Booking {
     remarks
     paymentMethod
     fixPriceClient
-    fixPriceGTcontracttor
+    fixPriceGTcontractor
     routingPrice
     contactPerson
     emailBookingArranger
@@ -37,6 +37,8 @@ export class Booking {
     VIP
     CustomerID
     CityPriceID
+    bookingType
+    serviceID
 
     constructor(data?: any) {
         this.mainContact = data.mainContact || ''
@@ -51,7 +53,8 @@ export class Booking {
         this.remarks = data.remarks || ''
         this.paymentMethod = data.paymentMethod || 'invoice'
         this.fixPriceClient = data.fixPriceClient || ''
-        this.fixPriceGTcontracttor = -5
+        this.fixPriceGTcontractor  = data.fixPriceGTcontractor || ''
+
         this.routingPrice = data.routingPrice || ''
         this.contactPerson = data.contactPerson || ''
         this.emailBookingArranger = data.email || ''
@@ -77,6 +80,7 @@ export class Booking {
         this.VIP = data.VIP || ''
         this.CustomerID = data.CustomerID || ''
         this.CityPriceID = data.CityPriceId || ''
-
+        this.bookingType = data.bookingType || ''
+        this.serviceID = data.serviceID || ''
     }
 }
