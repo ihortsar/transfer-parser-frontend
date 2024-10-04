@@ -2,7 +2,7 @@
     <div class="formWrapper">
         <h2>{{ booking.bookingType }}</h2>
 
-        <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="bookingForm" (ngSubmit)="booking.bookingType !== 'CANCELLATION' ? onSubmit() : cancelBooking()">
 
             <div>
                 <label for="mainContact">Main Contact:</label>

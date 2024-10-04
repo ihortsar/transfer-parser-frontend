@@ -42,7 +42,16 @@ export class TransferWindowComponent implements OnInit {
   }
 
 
+  cancelBooking(){
+    this.bookingForm.reset();
+    this.booking = null;
+  }
+
+
   ifBookingNotEmpty(): boolean {
     return this.booking && Object.keys(this.booking).length > 0;
   }
+
+
+
 }
