@@ -6,6 +6,7 @@ import { BookingService } from '../booking.service';
 import { TransferWindowComponent } from "../transfer-window/transfer-window.component";
 import { NgFor, NgIf } from '@angular/common';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { log } from 'node:console';
 
 @Component({
   selector: 'app-home',
@@ -15,6 +16,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+  err = '';
   pdfSource: SafeResourceUrl | null = null;
   pdf: any
   constructor(private http: HttpClient, public bs: BookingService, private sanitizer: DomSanitizer) { }
@@ -30,16 +32,19 @@ export class HomeComponent {
 
 
   async sendToParse() {
+    this.err = ''
     this.bs.bookings = []
     const url = 'http://localhost/transfer-parser/index.php'
     const formData = new FormData();
     formData.append('pdf', this.pdf);
 
-    const response = await lastValueFrom(this.http.post(url, formData, {
-    }))
-    this.bs.createTransfer(response)
+    const response: any = await lastValueFrom(this.http.post(url, formData));
+    if (response.error) {
+      this.err = response.error;
+    } else {
+      this.bs.createTransfer(response);
+    }
+
   }
-
-
 
 }
